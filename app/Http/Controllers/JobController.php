@@ -8,6 +8,32 @@ use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
+
+    public function search(Request $request)
+    {
+        $query = Job::query();
+
+        // Apply search filters
+        if ($request->has('title') && $request->title) {
+            $query->where('title', 'like', '%' . $request->title . '%');
+        }
+
+        if ($request->has('location') && $request->location) {
+            $query->where('location', 'like', '%' . $request->location . '%');
+        }
+
+        if ($request->has('job_type') && $request->job_type) {
+            $query->where('job_type', $request->job_type);
+        }
+
+        // Fetch all jobs, prioritizing employer jobs
+        $jobs = $query->orderBy('employer_id', 'desc')->get();
+
+        // Return the view with jobs
+        return view('welcome', compact('jobs'));
+    }
+
+
     // Display job creation form
     public function create()
     {

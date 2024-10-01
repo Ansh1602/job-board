@@ -5,9 +5,7 @@ use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [JobController::class, 'search'])->name('jobs.search');
 Route::get('/dashboard', [JobController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
 
