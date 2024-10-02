@@ -21,7 +21,7 @@
             <div class="card-body">
                 <h5>{{ $job->title }}</h5>
                 <p>{{ $job->location }} | {{ ucfirst($job->job_type) }}</p>
-                <p>Posted by: {{ $job->employer_id && $job->employer ? $job->employer->name : 'Mock Job' }}</p>
+                <!-- <p>Posted by: {{ $job->employer_id && $job->employer ? $job->employer->name : 'Mock Job' }}</p> -->
             </div>
         </div>
     @endforeach
