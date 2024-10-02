@@ -26,6 +26,6 @@
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie",
         "LARAVEL_BYPASS_ENV_CHECK": "1"
-    },
+    }
     
 }
