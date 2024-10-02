@@ -4,9 +4,9 @@
     "builds": [
         {
             "src": "api/index.php",
-            "use": "@vercel/php",
+            "use": "@vercel/static-build",
             "config": {
-                "buildCommand": "apt-get update && apt-get install -y libssl1.0.0 && composer install"
+                "distDir": "public"
             }
         }
     ],
