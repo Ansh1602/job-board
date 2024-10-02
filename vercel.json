@@ -27,16 +27,5 @@
         "SESSION_DRIVER": "cookie",
         "LARAVEL_BYPASS_ENV_CHECK": "1"
     },
-    "builds": [
-        {
-            "src": "package.json",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "public"
-            }
-        }
-    ],
-    "scripts": {
-        "build": "npm run build"
-    }
+    
 }
