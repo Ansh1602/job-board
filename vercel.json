@@ -1,19 +1,15 @@
 {
     "version": 2,
-    "framework": null,
     "builds": [
         {
-            "src": "api/index.php",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "public"
-            }
+            "src": "api/**/*.js",
+            "use": "@vercel/node"
         }
     ],
     "routes": [
         {
-            "src": "/(.*)",
-            "dest": "/api/index.php"
+            "src": "/api/(.*)",
+            "dest": "/api/$1"
         }
     ],
     "env": {
