@@ -21,7 +21,7 @@
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
+                            <a class="nav-link" href="{{ route('dashboard') }}">Employee Dashboard</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}"

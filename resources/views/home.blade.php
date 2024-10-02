@@ -6,9 +6,7 @@
 <div class="container">
     <h1>Job Listings</h1>
 
-    @if ($jobs->isEmpty())
-        <p>No jobs available at the moment.</p>
-    @else
+    @if (isset($jobs) && $jobs->isNotEmpty())
         <ul class="list-group">
             @foreach($jobs as $job)
                 <li class="list-group-item">
@@ -20,6 +18,8 @@
                 </li>
             @endforeach
         </ul>
+    @else
+        <p>No jobs available at the moment.</p>
     @endif
 </div>
 @endsection
