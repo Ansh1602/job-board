@@ -1,11 +1,6 @@
 {
     "version": 2,
     "framework": null,
-    "functions": {
-        "api/index.php": {
-            "runtime": "vercel-php@0.6.0"
-        }
-    },
     "builds": [
         {
             "src": "api/index.php",
@@ -36,5 +31,4 @@
         "SESSION_DRIVER": "cookie",
         "LARAVEL_BYPASS_ENV_CHECK": "1"
     }
-    
 }
