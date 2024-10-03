@@ -10,18 +10,6 @@ Route::get('/dashboard', [JobController::class, 'dashboard'])->name('dashboard')
 
 
 
-Route::get('/employer/register', [EmployerAuthController::class, 'showRegisterForm'])->name('employer.register');
-Route::post('/employer/register', [EmployerAuthController::class, 'register']);
-Route::get('/employer/login', [EmployerAuthController::class, 'showLoginForm'])->name('employer.login');
-Route::post('/employer/login', [EmployerAuthController::class, 'login']);
-Route::post('/employer/logout', [EmployerAuthController::class, 'logout'])->name('employer.logout');
-
-
-Route::middleware(['auth:employer'])->group(function () {
-    Route::get('/employer/dashboard', function () {
-        return view('employer.dashboard');
-    })->name('employer.dashboard');
-});
 
 // Job Routes for Employers
 Route::group(['middleware' => ['auth']], function () {
@@ -34,15 +22,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/jobs/{id}', [JobController::class, 'destroy'])->name('jobs.destroy');
 });
 
-// Public Job Routes
-Route::get('/jobs', [JobController::class, 'index'])->name('jobs.index');
-
-
-Route::get('/jobs/{id}', [JobController::class, 'show'])->name('jobs.show');
-
-Route::get('/jobs/create', [JobController::class, 'create'])->name('jobs.create')->middleware('auth');
-Route::post('/jobs', [JobController::class, 'store'])->name('jobs.store')->middleware('auth');
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
